@@ -1,4 +1,4 @@
-<h1>Heizung Letzte Woche<hr></h1>
+ï»¿<h1>Ogrzewanie w ostatnim tygodniu<hr></h1>
 
 <?php
 include("a_emsmenu.inc");
@@ -17,7 +17,7 @@ $raumtemp = get_min_max_interval(SensorRaumIstTemp, "1 week");
     <tr><td>
       <table border=0 cellspacing=0 cellpadding=0 width="100%">
         <tr><td>
-          <?php print_min_max_table("Außentemperatur", $aussentemp); ?>
+          <?php print_min_max_table("AuÃŸentemperatur", $aussentemp); ?>
         </td></tr>
         <tr height=6></tr>
         <tr><td>
@@ -28,7 +28,7 @@ $raumtemp = get_min_max_interval(SensorRaumIstTemp, "1 week");
   </table>
   <h3>Graphen</h3>
   <p>
-    <img src="graphs/aussentemp-week.png" width=90% alt="Außentemperaturentwicklung">
+    <img src="graphs/aussentemp-week.png" width=90% alt="AuÃŸentemperaturentwicklung">
   </p>
   <p>
     <img src="graphs/raumtemp-week.png" width=90% alt="Raumtemperaturentwicklung">

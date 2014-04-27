@@ -1,19 +1,19 @@
-<?
+﻿<?
 
 $rights = array("login"  => array(),
                 "public" => array());
 
 $menus=array(
 
-  array("Buderus EMS","main.php","Heizung",
+  array("Buderus EMS","main.php","Ogrzewanie",
        array(
-             "Livestatus" => "a_emslive.php",
-             "Schaltpunkte" => "a_emssched.php",
-             "Heizkurve" => "a_emshk.php",
-             "Einstellungen" => "a_emsset.php",
-             "Fehlerspeicher" => "a_emserr.php",
-             "Protokoll" => "a_emslog.php",
-             "Statistik" => "a_emstime.php",
+             "Bieżące dane" => "a_emslive.php",
+             "Prog. przełączeń" => "a_emssched.php",
+             "Krzywa grzewcza" => "a_emshk.php",
+             "Ustawienia" => "a_emsset.php",
+             "Kody błędów" => "a_emserr.php",
+             "Zdarzenia" => "a_emslog.php",
+             "Statystyka" => "a_emstime.php",
              "HIDDEN7" => "a_emshour.php",
              "HIDDEN6" => "a_emstest.php",
              "HIDDEN4" => "a_emsday.php",

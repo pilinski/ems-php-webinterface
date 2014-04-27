@@ -1,5 +1,5 @@
-<h1>
-Schaltprogramme
+﻿<h1>
+Program przełączeń
 <hr>
 </h1>&nbsp;
 <table id=prog width=250px bgcolor=#cccccc cellspacing=0 cellpadding=5>
@@ -18,7 +18,7 @@ Schaltprogramme
 </tablel>
 <script type="text/javascript">
 function progress(perc){
-    document.getElementById("prc").innerHTML="<b>Bitte warten...</b> ("+perc+"%)";
+    document.getElementById("prc").innerHTML="<b>Proszę czekać...</b> ("+perc+"%)";
   for (i=0; i<=perc/12; i++){
     if (i<8) document.getElementById("p"+i).style.backgroundColor="#8888ff";
   }
@@ -86,7 +86,7 @@ $emstgt= array("Heizkreis Eig.1" => "hk1-1",
 
 $emspathk = array("Familie"=>"family",
                   "Morgen"=>"morning",
-                  "Fr�h"=> "early",
+                  "Früh"=> "early",
                   "Abend"=> "evening",
                   "Vormittag"=> "forenoon",
                   "Nachmittag"=> "afternoon",
@@ -159,7 +159,7 @@ print("<p><input type=submit name=setmode value=Setzen>");
 print("</td></tr></table>");
 
 $desc = end(array_keys($emstgt,$currsrc));
-if ($changed) $desc .= " (Ge�ndert)";
+if ($changed) $desc .= " (Geändert)";
 print("<table cellpadding=10px>");
 
 print("<tr><td bgcolor=#bbbbbb colspan=7><h3>$desc</h3></td></tr>");

@@ -1,15 +1,15 @@
-<h1>
-Protokoll Servicecodes
+﻿<h1>
+Protokół kodów serwisowych
 <hr></h1>
 <form method="post">
 <table border=0 cellpadding=3 cellspacing=3 bgcolor=#d3d0c9>
 <tr>
 <td></td>
-<td><b>Datum</b></td>
-<td><b>Zeit</b></td>
-<td><b>Service-<br>Code</b></td>
-<td><b>Fehler-<br>Code</b></td>
-<td><b>Beschreibung</b></td>
+<td><b>Data</b></td>
+<td><b>Czas</b></td>
+<td><b>Kod<br>serw.</b></td>
+<td><b>Kod<br>błędu</b></td>
+<td><b>Opis</b></td>
 </tr>
 <?php
 require("/emsincludes/emsqry.inc");
@@ -60,7 +60,7 @@ foreach ($in as $l){
   }   
 
 
-  if (strpos(" ".$desc,"St�rungscode")){
+  if (strpos(" ".$desc,"Störungscode")){
     $col="#FF0000";
     $stoer = true;
   }   
@@ -96,5 +96,5 @@ foreach ($in as $l){
 
 </table>
 <p>
-<input type=submit value="Aktualisieren">
+<input type=submit value="Aktualizuj">
 </form>

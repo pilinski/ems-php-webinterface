@@ -1,4 +1,4 @@
-<h1>Heizung Letzter Tag<hr></h1>
+ï»¿<h1>Ogrzewanie wczoraj<hr></h1>
 <?php
 include("a_emsmenu.inc");
 include 'sensor_utils.php.inc';
@@ -16,39 +16,39 @@ $raumtemp = get_min_max_interval(SensorRaumIstTemp, "1 day");
     <tr><td>
       <table border=0 cellspacing=0 cellpadding=0 width="100%">
         <tr><td>
-          <?php print_min_max_table("Außentemperatur in den letzten 24h", $aussentemp); ?>
+          <?php print_min_max_table("Temp. zewnÄ™trzne w ostatnich 24h", $aussentemp); ?>
         </td></tr>
         <tr height=6></tr>
         <tr><td>
-          <?php print_min_max_table("Außentemperatur heute", $aussentemp_today, TRUE); ?>
+          <?php print_min_max_table("Temp. zewnÄ™trzne dzisiaj", $aussentemp_today, TRUE); ?>
         </td></tr>
         <tr height=6></tr>
         <tr><td>
-          <?php print_min_max_table("Außentemperatur gestern", $aussentemp_yesterday, TRUE); ?>
+          <?php print_min_max_table("Temp. zewnÄ™trzne wczoraj", $aussentemp_yesterday, TRUE); ?>
         </td></tr>
         <tr height=6></tr>
         <tr><td>
-          <?php print_min_max_table("Raumtemperatur in den letzten 24h", $raumtemp); ?>
+          <?php print_min_max_table("Temperatura pomieszczeÅ„ w ostatnich 24h", $raumtemp); ?>
         </td></tr>
       </table>
     </td></tr>
   </table>
   <h3>Graphen</h3>
   <p>
-    <img src="graphs/aussentemp-day.png" width=90% alt="Außentemperaturentwicklung">
+    <img src="graphs/aussentemp-day.png" width=90% alt="Temperatira zewnetrzna">
   </p>
   <p>
-    <img src="graphs/raumtemp-day.png" width=90% alt="Raumtemperaturentwicklung">
+    <img src="graphs/raumtemp-day.png" width=90% alt="Temperatura pomiesazczen">
   </p>
   <p>
-    <img src="graphs/kessel-day.png" width=90% alt="Kesseltemperaturentwicklung">
+    <img src="graphs/kessel-day.png" width=90% alt="Temperatura kotla">
   </p>
   <p>
-    <img src="graphs/ww-day.png" width=90% alt="Warmwassertemperaturentwicklung">
+    <img src="graphs/ww-day.png" width=90% alt="Temperaratura c.w.u.">
   </p>
   <p>
-    <img src="graphs/brenner-day.png" width=90% alt="Brennerstatus">
+    <img src="graphs/brenner-day.png" width=90% alt="Status palnika">
   </p>
   <p>
-    <img src="graphs/pumpen-day.png" width=90% alt="Pumpenstatus">
+    <img src="graphs/pumpen-day.png" width=90% alt="Status pompy">
   </p>

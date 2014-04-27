@@ -4,7 +4,7 @@ include 'constants.php.inc';
 
 function open_db() {
   require("/emsincludes/config.php");
-  return new PDO('mysql:dbname=ems_data;host='.$mysql_host, $mysql_user, $mysql_pass);
+  return new PDO('mysql:dbname=ems_data;host=localhost', 'emsdata', 'emsdata');
 }
 
 function format_value($row) {

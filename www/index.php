@@ -1,7 +1,6 @@
 <?php
-ob_start();
-header('Content-Type: text/html; charset=iso-8859-1');
-$seite=@$_GET["seite"];
+header('Content-Type: text/html; charset=utf-8');
+$seite=$_GET["seite"];
 $seite = str_replace("/","",$seite);
 $seite = substr($seite,0,-4);
 $seite = str_replace(".","",$seite);
@@ -11,7 +10,7 @@ $seite .= ".php";
 ?>
 <html>
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
   <meta name="author" content="Michael Moosbauer">
   <META http-equiv="Expires" CONTENT="0">
   <link rel="stylesheet" href="moosy.css" type="text/css">
@@ -19,7 +18,7 @@ $seite .= ".php";
 </head>
 <body>
 <?php
-$menu = (@$_GET["menu"]!="no");
+$menu = ($_GET["menu"]!="no");
 if ($menu) {
   require("top.php");
   print('<div id="content"><p>&nbsp;<p>');

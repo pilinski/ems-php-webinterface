@@ -1,9 +1,10 @@
 <h1>
-Statistik
+Statystyka
 <hr></h1>
 <form method="post">
 
 <?php
+require("/emsincludes/config.php");
 include("a_emsmenu.inc");
 
 function beginTable(){
@@ -57,9 +58,9 @@ $in = array("Betriebsstunden total" => parseTimeStr(getlivedata(),"operatingminu
             "Brennerstarts" => $bs=getStr(getlivedata(),"heater heaterstarts"),
             "Durchschnittliche Brennerlaufzeit" => round(reset(explode("h",$bk)) / $bs *60 ,1)."min",
             
-            "Softwareversion UBA" => parseVersion("UBA"),
-            "Softwareversion BC10" => parseVersion("BC10"),
-            "Softwareversion RC35" => parseVersion("RC"),
+            "Software version UBA" => parseVersion("UBA"),
+            "Software version BC10" => parseVersion("BC10"),
+            "Software version RC35" => parseVersion("RC"),
             "Version EMS-Collector" => parseVersion("collector"));
             
 
@@ -67,9 +68,9 @@ $in = array("Betriebsstunden total" => parseTimeStr(getlivedata(),"operatingminu
 print("<table cellspacing=14>");
 if ($in["Version EMS-Collector"] < $min_collector_version){
   print("<tr><td colspan=2 bgcolor=#ff0000 style='padding: 2em 2em 2em 2em; font-size: 14pt;'><b>ACHTUNG:</b> ".
-    "Der verwendete ems-collector ist zu alt! Erforderlich ist Version $min_collector_version oder neuer! ".
-    "Es können womöglich nicht alle Funktionen ".
-    "benutzt werden. Verwenden Sie ggf. die Version von <a href='https://github.com/moosy/ems-collector'>https://github.com/moosy/ems-collector</a>!</td></tr>");
+    "Wymagany ems-collector jest zbyt stary! Wymagana jest wersja $min_collector_version lub nowsza! ".
+    "Niemo¿liwe jest u¿ywanie wszystkich dostêpnych funkcji. ".
+    "Koniecznie pobierz bnajnowsz¹ wersjê z <a href='https://github.com/moosy/ems-collector'>https://github.com/moosy/ems-collector</a>!</td></tr>");
 }
 print("<tr><td colspan=2>");
 
@@ -89,6 +90,19 @@ print("</td></tr></table>");
 ?>
 
 </table>
-<p>
-<input type=submit value="Aktualisieren">
+
+<p><input type=submit value="Aktualizuj">
+
 </form>
+
+<!-- 
+?php
+print("Calculating graphs...   " . $emsscriptpath . '/calcemsgraphs.sh &' );
+print("<BR>Please wait...")
+exec('sudo ' . $emsscriptpath . '/calcemsgraphs.sh &');
+?
+-->
+<p>
+Gotowe!
+<p>
+

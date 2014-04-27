@@ -1,4 +1,4 @@
-<h1>
+ï»¿<h1>
 Erweiterte Einstellungen
 <hr>
 </h1>
@@ -18,7 +18,7 @@ Erweiterte Einstellungen
 </tablel>
 <script type="text/javascript">
 function progress(perc){
-    document.getElementById("prc").innerHTML="<b>Bitte warten...</b> ("+perc+"%)";
+    document.getElementById("prc").innerHTML="<b>ProszÄ™ czekaÄ‡...</b> ("+perc+"%)";
   for (i=0; i<=perc/12; i++){
     if (i<8) document.getElementById("p"+i).style.backgroundColor="#8888ff";
   }
@@ -279,33 +279,33 @@ progress(20);
 <table width=100%> 
 <tr style='visibility:hidden' id=w_ah1> 
   <td>Nachts reduzierter Betrieb unter</td>
-  <td align=right><?php tempchooser("nachtred",-20,10,1,"°C","waehlen",getHKInfo("nachtred"));?></td>
+  <td align=right><?php tempchooser("nachtred",-20,10,1,"Â°C","waehlen",getHKInfo("nachtred"));?></td>
 </tr>   
 <script type="text/javascript">progress(30);</script>
 <?php flush_buffers();?>
 <tr style='visibility:hidden' id=w_fs1>
   <td>Frostschutz</td>
-  <td align=right ><?php tempchooser("frost",-20,10,1,"°C","waehlen",getHKInfo("frost"));?></td>
+  <td align=right ><?php tempchooser("frost",-20,10,1,"Â°C","waehlen",getHKInfo("frost"));?></td>
 </tr>   
 <tr>
   <td>Nachtabsenkung abbrechen unter</td>
-  <td align=right ><?php tempchooser("absquit",-31,10,1,"°C","waehlen",getHKInfo("absquit"),array("-31" => "aus"));?></td>
+  <td align=right ><?php tempchooser("absquit",-31,10,1,"Â°C","waehlen",getHKInfo("absquit"),array("-31" => "aus"));?></td>
 </tr>   
 <tr style='visibility:hidden' id=w_at1>
   <td>Sommerbetrieb ab</td>
-  <td align=right ><?php tempchooser("summertime",9,30,1,"°C","waehlen",getHKInfo("summertime"));?></td>
+  <td align=right ><?php tempchooser("summertime",9,30,1,"Â°C","waehlen",getHKInfo("summertime"));?></td>
 </tr>
 <tr style='visibility:hidden' id=w_at2>
   <td>max. Raumtemperatureinfluss</td>
-  <td align=right ><?php tempchooser("maxroomeffect",0,10,0.5,"°C","waehlen",getHKInfo("maxroomeffect"));?></td>
+  <td align=right ><?php tempchooser("maxroomeffect",0,10,0.5,"Â°C","waehlen",getHKInfo("maxroomeffect"));?></td>
 </tr>
 <tr>
   <td>min. Vorlauftemperatur</td>
-  <td align=right ><?php tempchooser("minvorlauf",5,70,1,"°C","waehlen",getHKInfo("minvorlauf"));?></td>
+  <td align=right ><?php tempchooser("minvorlauf",5,70,1,"Â°C","waehlen",getHKInfo("minvorlauf"));?></td>
 </tr>
 <tr>
   <td>max. Vorlauftemperatur</td>
-  <td align=right ><?php tempchooser("maxvorlauf",30,90,1,"°C","waehlen",getHKInfo("maxvorlauf"));?></td>
+  <td align=right ><?php tempchooser("maxvorlauf",30,90,1,"Â°C","waehlen",getHKInfo("maxvorlauf"));?></td>
 </tr>
 
 </table>
@@ -333,7 +333,7 @@ progress(20);
 <?php flush_buffers();?>
 <tr>
   <td>Abwesendtemperatur</td>
-  <td align=right ><?php tempchooser("urlaubt",10,30,0.5,"°C","waehlen",getHKInfo("urlaubt"));?></td>
+  <td align=right ><?php tempchooser("urlaubt",10,30,0.5,"Â°C","waehlen",getHKInfo("urlaubt"));?></td>
 </tr>   
 <tr>
   <td>Absenkung</td>
@@ -345,7 +345,7 @@ progress(20);
 
 <tr id=w_uah1>
   <td>Nachts reduzierter Betrieb unter</td>
-  <td align=right ><?php tempchooser("urlaubnachtred",-20,10,1,"°C","waehlen",getHKInfo("urlaubnachtred"));?></td>
+  <td align=right ><?php tempchooser("urlaubnachtred",-20,10,1,"Â°C","waehlen",getHKInfo("urlaubnachtred"));?></td>
 </tr>   
 </table>
 
@@ -357,7 +357,7 @@ progress(20);
 <h3>Regelung</h3>
 <table width=100%>
 <tr>
-  <td>Führungsgröße</td>
+  <td>FÃ¼hrungsgrÃ¶ÃŸe</td>
   <td align=right >
       <?php $def = getHKInfo("refinput");
         refinputchooser("refinput",$def);?>
@@ -398,19 +398,19 @@ progress(20);
 <table width=100%>
 
 <tr>
-  <td>Dämpfung Außentemperatur</td>
+  <td>DÃ¤mpfung AuÃŸentemperatur</td>
   <td align=right ><?php onoffchooser("daempfung",getRCInfo("daempfung"));?></td>
 </tr>
 <script type="text/javascript">progress(50);</script>
 <?php flush_buffers();?>
 <tr style='visibility:hidden' id=w_da1>
-  <td>Gebäudeart</td>
+  <td>GebÃ¤udeart</td>
   <td align=right ><?php gebaeudechooser("gebaeude",getRCInfo("gebaeude"));?></td>
 </tr>
   
 <tr>
   <td>Minimale Aussentemperatur</td>
-  <td align=right ><?php tempchooser("minaussentemp",-30,0,1,"°C","waehlen",getRCInfo("minaussentemp"));?></td>
+  <td align=right ><?php tempchooser("minaussentemp",-30,0,1,"Â°C","waehlen",getRCInfo("minaussentemp"));?></td>
 </tr>
 
 
@@ -438,7 +438,7 @@ progress(20);
 <?php flush_buffers();?>
 <tr>
   <td>Begrenzung Warmwasser auf</td>
-  <td align=right ><?php tempchooser("limittemp",30,80,1,"°C","waehlen",getWWInfo("limittemp"));?></td>
+  <td align=right ><?php tempchooser("limittemp",30,80,1,"Â°C","waehlen",getWWInfo("limittemp"));?></td>
 </tr>
 <tr>
   <td>LED Einmalladungstaste</td>
@@ -461,7 +461,7 @@ progress(20);
 </tr>
 <tr style='visibility:hidden' id=w_di1>
   <td>Temperatur</td>
-  <td align=right ><?php tempchooser("tdtemp",30,80,1,"°C","wählen",getWWInfo("tdtemp"));?></td>
+  <td align=right ><?php tempchooser("tdtemp",30,80,1,"Â°C","wÃ¤hlen",getWWInfo("tdtemp"));?></td>
 </tr>   
 <tr style='visibility:hidden' id=w_di2>
   <td>Tag</td>
@@ -487,25 +487,25 @@ progress(20);
 <table width=100%>
 <tr>
   <td>Antipendelzeit (Taktsperre)</td>
-  <td align=right ><?php tempchooser("antipen",5,30,1,"min","wählen",getUBAinfo("antipen"));?></td>
+  <td align=right ><?php tempchooser("antipen",5,30,1,"min","wÃ¤hlen",getUBAinfo("antipen"));?></td>
 </tr>   
 <script type="text/javascript">progress(60);</script>
 <?php flush_buffers();?>
 <tr>
   <td>Einschalthysterese</td>
-  <td align=right ><?php tempchooser("hystein",-10,-1,1,"°C","wählen",getUBAinfo("hystein"));?></td>
+  <td align=right ><?php tempchooser("hystein",-10,-1,1,"Â°C","wÃ¤hlen",getUBAinfo("hystein"));?></td>
 </tr>   
 <tr>
   <td>Ausschalthysterese</td>
-  <td align=right ><?php tempchooser("hystaus",1,10,1,"°C","wählen",getUBAinfo("hystaus"));?></td>
+  <td align=right ><?php tempchooser("hystaus",1,10,1,"Â°C","wÃ¤hlen",getUBAinfo("hystaus"));?></td>
 </tr>   
 <tr>
   <td>min. Leistung </td>
-  <td align=right ><?php tempchooser("burnmin",0,100,5,"%","wählen",getUBAinfo("burnmin"));?></td>
+  <td align=right ><?php tempchooser("burnmin",0,100,5,"%","wÃ¤hlen",getUBAinfo("burnmin"));?></td>
 </tr> 
 <tr>  
   <td>max. Leistung </td>
-  <td align=right ><?php tempchooser("burnmax",0,100,5,"%","wählen",getUBAinfo("burnmax"));?></td>
+  <td align=right ><?php tempchooser("burnmax",0,100,5,"%","wÃ¤hlen",getUBAinfo("burnmax"));?></td>
 </tr>   
 </table>
 
@@ -516,15 +516,15 @@ progress(20);
 <table width=100%>
 <tr>
   <td>Nachlauf</td>
-  <td align=right ><?php tempchooser("kpnachl",1,61,1,"min","wählen",getUBAinfo("kpnachl"),array("61"=>"24 h"));?></td>
+  <td align=right ><?php tempchooser("kpnachl",1,61,1,"min","wÃ¤hlen",getUBAinfo("kpnachl"),array("61"=>"24 h"));?></td>
 </tr>   
 <tr>
   <td>min. Leistung </td>
-  <td align=right ><?php tempchooser("kpmin",55,100,5,"%","wählen",getUBAinfo("kpmin"));?></td>
+  <td align=right ><?php tempchooser("kpmin",55,100,5,"%","wÃ¤hlen",getUBAinfo("kpmin"));?></td>
 </tr> 
 <tr>  
   <td>max. Leistung </td>
-  <td align=right ><?php tempchooser("kpmax",55,100,5,"%","wählen",getUBAinfo("kpmax"));?></td>
+  <td align=right ><?php tempchooser("kpmax",55,100,5,"%","wÃ¤hlen",getUBAinfo("kpmax"));?></td>
 </tr>   
 </table>
 
@@ -543,7 +543,7 @@ progress(20);
 </tr>
 <tr id='w_dat' style='visibility:hidden'> 
   <td>
-  nächstes Wartungsdatum</td>
+  nÃ¤chstes Wartungsdatum</td>
   <td align=right >
 
   <?php
@@ -557,7 +557,7 @@ progress(20);
   <td align=right >
   <?php
     $def = getMaintenanceInfo("mthours")*100;
-    tempchooser("mthours",100,6000,100,"h","wählen",$def);
+    tempchooser("mthours",100,6000,100,"h","wÃ¤hlen",$def);
     ?>
   </td>
 </tr>   

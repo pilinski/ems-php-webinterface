@@ -11,15 +11,15 @@ function popup2 (url) {
 }
 </script>
 <h1>
-Heizungssteuerung
+Sterowanie ogrzewaniem
 <hr>
 </h1>&nbsp;
 <table cellpadding=20px>
 <tr><td bgcolor=#cccccc>
 <div align=right>
-<a href="/?seite=a_emsdet.php&menu=no"  onclick="return popup(this.href);">EMS-Rohdaten</a>
+<a href="/?seite=a_emsdet.php&menu=no"  onclick="return popup(this.href);">'Czyste' dane EMS</a>
 &nbsp;&nbsp;
-<a href="/?seite=a_emstest.php&menu=no"  onclick="return popup2(this.href);">Funktionstest</a>
+<a href="/?seite=a_emstest.php&menu=no"  onclick="return popup2(this.href);">Test funkcji</a>
 </div>
 </td></tr>
 <tr>

@@ -1,5 +1,5 @@
-﻿<h1>
-Kody błędów
+<h1>
+Kody b³edów
 <hr></h1>
 <form method="post">
 
@@ -12,9 +12,9 @@ function beginTable(){
 <td></td>
 <td><b>Data</b></td>
 <td><b>Czas</b></td>
-<td><b>Ile</b></td>
+<td><b>Dauer</b></td>
 <td><b>Kod<br>serw.</b></td>
-<td><b>Kod<br>bledu</b></td>
+<td><b>Kod<br>b³edu</b></td>
 <td><b>Opis</b></td>
 </tr>
 
@@ -23,8 +23,8 @@ function beginTable(){
 
 require("/emsincludes/emsqry.inc");
 
-$in = array("Błędy systemu" => doEmsCommand("rc geterrors"),
-            "Błędy kotła" => doEmsCommand("uba geterrors"));
+$in = array("Anlagenfehler" => doEmsCommand("rc geterrors"),
+            "Kesselfehler" => doEmsCbd systemuommand("uba geterrors"));
             
 require("/emsincludes/emsscdesc.inc");
 
@@ -78,7 +78,7 @@ foreach ($in as $edesc => $data){
         " </td><td> ".$desc.
         " </td></tr>\n");
 }
-if (!$haderrors)print("<tr><td></td><td colspan=6>brak wpisów</td></tr>");
+if (!$haderrors)print("<tr><td></td><td colspan=6>keine Eintr�ge</td></tr>");
 ?>
 
 </table>

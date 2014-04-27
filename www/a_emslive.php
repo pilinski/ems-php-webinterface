@@ -1,5 +1,5 @@
-<h1>
-Heizung Livestatus
+Ôªø<h1>
+Ogrzewanie - status bie≈ºƒÖcy
 <hr>
 </h1>
 <table id=prog width=250px bgcolor=#cccccc cellspacing=0 cellpadding=5>
@@ -14,7 +14,7 @@ Heizung Livestatus
 </table>
 <script type="text/javascript">
 function progress(perc){
-    document.getElementById("prc").innerHTML="<b>Bitte warten...</b> ("+perc+"%)";
+    document.getElementById("prc").innerHTML="<b>Prosze czekac...</b> ("+perc+"%)";
   for (i=0; i<=perc/30; i++){
     document.getElementById("p"+i).style.backgroundColor="#8888ff";
   }
@@ -187,7 +187,7 @@ function setTempTemp()
     }
   }
   blockEnable("temptemp");
-  document.getElementById("statusbar").innerHTML="Temperatur tempor‰r ge‰ndert auf "+ttemp+" &deg;C";
+  document.getElementById("statusbar").innerHTML="Temperatura pomieszczenia zmieniona chwilowo na "+ttemp+" &deg;C";
   xmlhttp3.open("GET","ajax.php?seite=emssetval.ajax&source=temptemp&value="+ttemp,true);
   xmlhttp3.send();
 }
@@ -205,7 +205,7 @@ function setTempTempOff()
     }
   }
   blockEnable("temptemp");
-  document.getElementById("statusbar").innerHTML="Tempor‰re Raumtemperatur zur¸ckgesetzt.";
+  document.getElementById("statusbar").innerHTML="Reset tymczasowej temperatury pomieszczenia";
   xmlhttp3.open("GET","ajax.php?seite=emssetval.ajax&source=temptemp&value=off",true);
   xmlhttp3.send();
 }
@@ -227,7 +227,7 @@ function setValue(src)
   var sel = document.getElementById(src);
   var newval = sel.options[sel.selectedIndex].value;
   blockEnable(src);
-  document.getElementById("statusbar").innerHTML="Wert '"+src+"' gesetzt auf '"+newval+"'.";
+  document.getElementById("statusbar").innerHTML="Zmienna '"+src+"' ustawiona na '"+newval+"'.";
   xmlhttp2.open("GET","ajax.php?seite=emssetval.ajax&source="+src+"&value="+newval,true);
   xmlhttp2.send();
 }
@@ -242,7 +242,7 @@ function setCommand(cmd, param)
     resetEnable("autobetr");
     activereq = false;
   }
-  document.getElementById("statusbar").innerHTML="Befehl '"+cmd+" "+param+"' ausgef¸hrt.";
+  document.getElementById("statusbar").innerHTML="Komenda '"+cmd+" "+param+"' wykonana.";
   xmlhttp2.open("GET","ajax.php?seite=emssetval.ajax&source="+cmd+"&value="+param,true);
   xmlhttp2.send();
 }
@@ -264,19 +264,19 @@ progress(30);
 <?php flush_buffers();?>
 <form method=post> 
 <table border=0 cellspacing=1 cellpadding=7>
-<tr><td bgcolor=#bbbbbb colspan=3><h3>Betriebsart</h3></td></tr>
+<tr><td bgcolor=#bbbbbb colspan=3><h3>Tryb pracy</h3></td></tr>
 
 <tr>
 <td rowspan=1 ></td>
 <td align=center colspan=2 bgcolor=#cccccc>
 <table cellpadding=2><tr>
-<td id=daym><input name=hkmode type=button value=Tag onclick=setCommand("hkmode","day");></td>
-<td id=nightm><input name=hkmode type=button value=Nacht onclick=setCommand("hkmode","night");></td>
-<td id=autom><input name=hkmode type=button value=Auto onclick=setCommand("hkmode","auto");></td>
+<td id=daym><input name=hkmode type=button value=Dzie≈Ñ onclick=setCommand("hkmode","day");></td>
+<td id=nightm><input name=hkmode type=button value=Noc onclick=setCommand("hkmode","night");></td>
+<td id=autom><input name=hkmode type=button value=Autom. onclick=setCommand("hkmode","auto");></td>
 </table>
 </td>   
 </tr>
-<tr><td bgcolor=#bbbbbb colspan=3><h3>Heizkreis</h3></td></tr>
+<tr><td bgcolor=#bbbbbb colspan=3><h3>Obieg grzewczy</h3></td></tr>
 
 <tr>
 <td rowspan=3></td>
@@ -289,13 +289,13 @@ progress(30);
 <?php 
 printf("%1.1f",$temptemp);
 ?>
-</span></font><font size=-1.5><sup>∞C</sup></td>
+</span></font> <sup>o</sup>C</td>
 <td bgcolor=#eeeeee><a href="javascript:void(); " onclick=addv();><img src=img/plus.png border=0></a></td>
-<td><input name=settemptemp type=button value='Set' onclick=setTempTemp(); ><br><input name=settemptempoff type=button value='Reset' onclick=setTempTempOff();></td>
+<td><input name=settemptemp type=button value='Ustaw' onclick=setTempTemp(); ><br><input name=settemptempoff type=button value='Kasuj' onclick=setTempTempOff();></td>
 </tr>
 </table>
 </td>
-<td id=heizdisabled style="display: none;" colspan=2 align=center bgcolor=#ff7777>Heizfunktion am Kessel deaktiviert!
+<td id=heizdisabled style="display: none;" colspan=2 align=center bgcolor=#ff7777>Funkcja ogrzewania w kotle wy≈ÇƒÖczona!
 </td>
 </tr>
 
@@ -305,64 +305,64 @@ progress(40);
 <?php flush_buffers();?>
 <tr>
 <td id=daychooser align=left valign=top bgcolor=#cccccc>
-Tagtemperatur<br><center>
-<?php tempchooser("day",10,30,0.5,"∞C","waehlen",getHKInfo("day"));?>
+Temperatura w dzie≈Ñ<br><center>
+<?php tempchooser("day",10,30,0.5,"¬∞C","wybierz",getHKInfo("day"));?>
 </td>   
 <td id=nightchooser align=left valign=top bgcolor=#cccccc>
-Nachttemperatur<br><center>
+Temperatura w nocy<br><center>
 <span id=nightvalue>
-<?php tempchooser("night",10,30,0.5,"∞C","waehlen",getHKInfo("night"));?>
+<?php tempchooser("night",10,30,0.5,"¬∞C","wybierz",getHKInfo("night"));?>
 </span>
 <span id=nightoff style="display:none;">
-<b>Heizung<br>aus</b>
+<b>Ogrzewanie<br>WY≈Å./b>
 </span>
 
 </td>   
 </tr><tr>
 <td align=left bgcolor=#cccccc>
-Partymodus<br><center>
-<?php tempchooser("party",1,48,1,"h","aus",getPartyInfo("party"));?>
+Tryb 'Party'<br><center>
+<?php tempchooser("party",1,48,1,"h","wy≈Ç.",getPartyInfo("party"));?>
 </td>   
 
 
 <td align=left bgcolor=#cccccc>
-Pausemodus<br><center>
-<?php tempchooser("pause",1,48,1,"h","aus",getPartyInfo("pause"));?>
+Tryb przerwy<br><center>
+<?php tempchooser("pause",1,48,1,"h","wy≈Ç.",getPartyInfo("pause"));?>
 </td>   
 </tr>
 
-<tr><td  bgcolor=#bbbbbb colspan=3><h3>Warmwasser</h3></td></tr>
+<tr><td  bgcolor=#bbbbbb colspan=3><h3>Ciep≈Ça woda u≈ºytkowa</h3></td></tr>
 <tr>
 <td rowspan=2></td>
 <td id=wwtemp align=left bgcolor=#cccccc>
-Temperatur<br><center>
-<?php tempchooser("wwtag",30,80,1,"∞C","w‰hlen",getWWinfo("wwtag"));?>
+Temperatura<br><center>
+<?php tempchooser("wwtag",30,80,1,"¬∞C","wybierz",getWWinfo("wwtag"));?>
 </td>
 
 <td id=wwdisabled style="display: none;" align=center colspan=2 bgcolor=#ff7777>
-Warmwasser am Kessel deaktiviert
+Tryb c.w.u. w kotle wy≈ÇƒÖczony
 </td>   
 
 <td id=oneloadchooser align=left bgcolor=#cccccc>
-Einmalladung<br><center>
-<input name=wwload type=button value=Starten onclick=setCommand("wwload","");><br>
-<input name=wwload type=button value=Abbrechen onclick=setCommand("wwstopload","");>
+Jednorazowe za≈Çadowanie c.w.u.<br><center>
+<input name=wwload type=button value=Rozpocznij onclick=setCommand("wwload","");><br>
+<input name=wwload type=button value=Przerwij onclick=setCommand("wwstopload","");>
 </td>   
 </tr>
 <tr>
 <td align=left bgcolor=#cccccc>
-Betriebsart<br><center>
+Tryb pracy<br><center>
 <?php modechooser("wwmode",getWWinfo("wwmode"));?>
 </td>   
 <td align=left bgcolor=#cccccc>
-Zirkulation<br><center>
+Cyrkulacja<br><center>
 <?php modechooser("zirmode",getWWinfo("zirmode"));?>
 </td>   
 </tr>
 <tr>
 <td bgcolor=#bbbbbb colspan=3>
 <div id=statusbar  style="font-size: 6pt;">
-Bereit.</div>
+Gotowy.</div>
 </td></tr>
 </table>
 </form>
@@ -443,7 +443,7 @@ close_ems();
 <p>
 <table id=sub border=0 cellpadding=7 cellspacing=1 width=100% style="display: none;">
 <tr><td bgcolor=#bbbbbb colspan=2>
-<h3>Beschreibung</h3>
+<h3>Opis</h3>
 </td></tr>
 <tr>
 <td></td>

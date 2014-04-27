@@ -1,18 +1,17 @@
-<html>
+﻿<html>
 <head>
 <META http-equiv="Expires" CONTENT="0">
 <link href="/moosy.css" rel="stylesheet" type="text/css">
 </head>
 <body style="background-color:#eeeeee" text="#000000" leftmargin="0" topmargin="1em"
 rightmargin="1em" marginwidth="1em" marginheight="1em">
-<h3>Funktionstest<hr></h3>
+<h3>Test funkcji<hr></h3>
 <form method=post>
 <table border=0 cellspacing=5 cellpadding=3>
 <tr bgcolor=#cccccc>
 <td colspan=4>
-Bitte regelm��ig auf "Aktivieren" klicken, sonst wird der 
-Test automatisch abgebrochen!
-</td></tr><tr bgcolor=#cccccc>
+Proszę regularnie klikać na przycisk "Aktywuj", w przeciwnym wypadku 
+test zostanie automatycznie anulowany!</td></tr><tr bgcolor=#cccccc>
 <?php
 
 require("/emsincludes/emsqry.inc");
@@ -23,12 +22,12 @@ $dwv = $zirk = $active = "off";
 
 if (isset($_POST["active"])){
 
-  if ($_POST["active"] == "Aktivieren"){
+  if ($_POST["active"] == "Aktywuj"){
     $active = "on";
-    $kessel = $_POST["kessel"];
-    $pumpe = $_POST["pumpe"];
-    $dwv = $_POST["dwv"];
-    $zirk = $_POST["zirk"];
+    $kessel = $_POST["kocioł"];
+    $pumpe = $_POST["pompa"];
+    $dwv = $_POST["zawór 3.dr"];
+    $zirk = $_POST["cyrk"];
   }
 
   $dwvv = ($dwv=="on"?1:0);
@@ -37,27 +36,27 @@ if (isset($_POST["active"])){
 }
 
 
-print("<td><b>Brennerleistung</b><br>");
-tempchooser("kessel",0,100,5,"%","w�hlen",$kessel);
+print("<td><b>Wydajnośc palnika</b><br>");
+tempchooser("kessel",0,100,5,"%","wybierz",$kessel);
 print("</td>");
 
-print("<td><b>Pumpenleistung</b><br>");
-tempchooser("pumpe",0,100,5,"%","w�hlen",$pumpe);
+print("<td><b>Wydajność pompy</b><br>");
+tempchooser("pumpe",0,100,5,"%","wybierz",$pumpe);
 print("</td>");
 
-print("<td><b>3W-Ventil WW</b><br>");
+print("<td><b>Zawór 3-drożny</b><br>");
 onoffchooser("dwv",$dwv);
 print("</td>");
 
-print("<td><b>Zirkulationspumpe</b><br>");
+print("<td><b>Pompa cysrkulacyjna</b><br>");
 onoffchooser("zirk",$zirk);
 print("</td>");
 
 ?>
 </tr><tr bgcolor=#cccccc>
 <td colspan=4 align=center>
-<input type=submit name=active value=Aktivieren>
-<input type=submit name=active value=Deaktivieren></td>
+<input type=submit name=active value=Aktywuj>
+<input type=submit name=active value=Przerwij></td>
 </tr>
 </table>
 

@@ -1,4 +1,4 @@
-<div style="display: none;">
+﻿<div style="display: none;">
 Preload Pics:
 <img src="img/hv_holiday.png">
 <img src="img/hv_vacation.png">
@@ -34,7 +34,7 @@ foreach ($data as $k => $v){
   $d[$k]=htmlentities($v);
 }
 $desc = $scdesc[$data["servicecode"].$data["errorcode"]];
-$stoer = (strpos(" ".$desc,"St�rungscode"));
+$stoer = (strpos(" ".$desc,"Störungscode"));
 
 $col1="#dddddd";
 $col2="#ffdddd";
@@ -46,31 +46,31 @@ if ($_GET["id"]==1){
 <?php
 print("<tr><td colspan=3>");
   print("<table><tr><td>");
-  print("<img src=img/".($d["flameactive"]=="on"?"flame.jpg":"off.jpg")." alt=Flamme>");
-  print("<img src=img/".($d["3wayonww"]=="on"?"valve.jpg":"heater.jpg")." alt='Heiz- oder Warmwasserbetrieb'>");
+  print("<img src=img/".($d["flameactive"]=="on"?"flame.jpg":"off.jpg")." alt=Ogień>");
+  print("<img src=img/".($d["3wayonww"]=="on"?"valve.jpg":"heater.jpg")." alt='Ogrzewanie lub c.w.u.'>");
   print("</td><td valign=top align=right>");
-  print("<img src=img/".($d["ww daymode"]=="on"?"ww_on.png":"ww_off.png")." alt=Warmwasserbereitung>&nbsp;");
-  print("<img src=img/".($d["zirkpump daymode"]=="on"?"zirk_on.png":"zirk_off.png")." alt=Zirkulation>&nbsp;");
-  print("<img src=img/".($d["hk1 partymode"]=="on"?"pp_party.png":($d["hk1 pausemode"]=="on"?"pp_pause.png":"pp_off.png"))." alt='Pause-/Partybetrieb'>&nbsp;");
+  print("<img src=img/".($d["ww daymode"]=="on"?"ww_on.png":"ww_off.png")." alt='przygotowanie c.w.u.'>&nbsp;");
+  print("<img src=img/".($d["zirkpump daymode"]=="on"?"zirk_on.png":"zirk_off.png")." alt=Cyrkulacja>&nbsp;");
+  print("<img src=img/".($d["hk1 partymode"]=="on"?"pp_party.png":($d["hk1 pausemode"]=="on"?"pp_pause.png":"pp_off.png"))." alt='Tryb Przerwy/Party'>&nbsp;");
 
-  print("<img src=img/".($d["hk1 holidaymode"]=="on"?"hv_holiday.png":($d["hk1 vacationmode"]=="on"?"hv_vacation.png":"hv_off.png"))." alt='Urlaub-/Ferienbetrieb'>&nbsp;");
+  print("<img src=img/".($d["hk1 holidaymode"]=="on"?"hv_holiday.png":($d["hk1 vacationmode"]=="on"?"hv_vacation.png":"hv_off.png"))." alt='Tryb Urlop'>&nbsp;");
   print("<br>");  
   print("<img src=img/".($d["hk1 summermode"]=="on"?"sun_on.png":"sun_off.png")." alt=Sommerbetrieb>&nbsp;");
   if ($stoer){
-    print("<img src=img/maint_error.png alt=St�rung>&nbsp;");
+    print("<img src=img/maint_error.png alt=Störung>&nbsp;");
   
   } else {  
-    print("<img src=img/".($d["heater maintenancedue"]=="bydate"?"maint_cal.png":($d["heater maintenancedue"]=="byhours"?"maint_hour.png":"maint_off.png"))." alt='Wartung'>&nbsp;");
+    print("<img src=img/".($d["heater maintenancedue"]=="bydate"?"maint_cal.png":($d["heater maintenancedue"]=="byhours"?"maint_hour.png":"maint_off.png"))." alt='Czekaj'>&nbsp;");
   }
   print("</td></tr></table>");
 print("</td></tr>");
-print("<tr><td valign=top>Betriebsart</b><br><font size=+1>".($d["hk1 daymode"]=="on"?"Tag":"Nacht")."</font><br> ".($d["hk1 automode"]=="on"?"Automatik":"manuell"));
+print("<tr><td valign=top>Tryb pracy</b><br><font size=+1>".($d["hk1 daymode"]=="on"?"Dzień":"Noc")."</font><br> ".($d["hk1 automode"]=="on"?"Automatycznie":"Ręcznie"));
 
 
      
 print("</td>");
-print("<td valign=top bgcolor=$col2>Kessel</b><br><font size=+1><center>".$d["heater currenttemperature"].$dg."</font><br>soll: ".$d["heater targettemperature"].$dg."</td>");
-print("<td valign=top bgcolor=$col1>Kesselpumpe<br><font size=+1><center>".$d["heaterpump currentmodulation"].$pc."</font></td></tr>");
+print("<td valign=top bgcolor=$col2>Kocioł</b><br><font size=+1><center>".$d["heater currenttemperature"].$dg."</font><br>Ust.: ".$d["heater targettemperature"].$dg."</td>");
+print("<td valign=top bgcolor=$col1>Pompa kotła<br><font size=+1><center>".$d["heaterpump currentmodulation"].$pc."</font></td></tr>");
 
 print("<tr><td>");
 print("</td>");
@@ -84,22 +84,22 @@ if ($fs > 20) $colfs="#ffffaa";
 if ($fs > 35) $colfs="#ffff00";
  
 
-print("<td valign=top bgcolor=$col1>Leistung<br><font size=+1><center>".$d["burner currentmodulation"].$pc."</font></td>");
-print("<td valign=top bgcolor=$colfs>Flammenstrom<br><font size=+1><center>".$fs.$ua."</font></td></tr>");
+print("<td valign=top bgcolor=$col1>Wydajność<br><font size=+1><center>".$d["burner currentmodulation"].$pc."</font></td>");
+print("<td valign=top bgcolor=$colfs>Prąd jonizacji<br><font size=+1><center>".$fs.$ua."</font></td></tr>");
 
 print("<tr><td valign=top >");
 print("</td>");
-print("<td valign=top bgcolor=$col2>Kesselausgang<br><font size=+1><center>".$d["heatexchanger currenttemperature"].$dg."</font></td>");
-print("<td valign=top bgcolor=$col3>R&uuml;cklauf<br><font size=+1><center>".$d["returnflow currenttemperature"].$dg."</font></td></tr>");
+print("<td valign=top bgcolor=$col2>Temp. na wyjściu kotła<br><font size=+1><center>".$d["heatexchanger currenttemperature"].$dg."</font></td>");
+print("<td valign=top bgcolor=$col3>Temp. na powrocie<br><font size=+1><center>".$d["returnflow currenttemperature"].$dg."</font></td></tr>");
 
 print("<tr><td valign=top >");
 print("</td>");
-print("<td valign=top bgcolor=$col1>Warmwasser<br><font size=+1><center>".$d["ww currenttemperature"].$dg."</font><br>soll: ".$d["ww targettemperature"].$dg."</td>");
-print("<td  valign=top bgcolor=$col1>Zirkulation<br><font size=+1><center>".($d["zirkpumpactive"]=="on"?"AN":"AUS")."</font></td></tr>");
+print("<td valign=top bgcolor=$col1>Ciepła woda<br><font size=+1><center>".$d["ww currenttemperature"].$dg."</font><br>Ust.: ".$d["ww targettemperature"].$dg."</td>");
+print("<td  valign=top bgcolor=$col1>Cyrkulacja<br><font size=+1><center>".($d["zirkpumpactive"]=="on"?"WŁ":"WYŁ")."</font></td><tr>");
 
-print("<tr><td valign=top>Au&szlig;entemperatur<br><font size=+1>".$d["outdoor currenttemperature"].$dg."</font></td>");
-print("<td valign=top bgcolor=$col1>Statuscode<br><font size=+1><center>".$d["servicecode"]." ".$d["errorcode"]."</font></td>");
-print("<td valign=top bgcolor=$col1>Systemdruck<br><font size=+1><center>".$d["pressure"]." bar</font></td></tr>");
+print("<tr><td valign=top>Temp. zewnętrzna<br><font size=+1>".$d["outdoor currenttemperature"].$dg."</font></td>");
+print("<td valign=top bgcolor=$col1>Kod serwisowy<br><font size=+1><center>".$d["servicecode"]." ".$d["errorcode"]."</font></td>");
+print("<td></td></tr>");
 
 print("</table></center>");
 
