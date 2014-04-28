@@ -95,11 +95,11 @@ print("<td valign=top bgcolor=$col3>Temp. na powrocie<br><font size=+1><center>"
 print("<tr><td valign=top >");
 print("</td>");
 print("<td valign=top bgcolor=$col1>Ciepła woda<br><font size=+1><center>".$d["ww currenttemperature"].$dg."</font><br>Ust.: ".$d["ww targettemperature"].$dg."</td>");
-print("<td  valign=top bgcolor=$col1>Cyrkulacja<br><font size=+1><center>".($d["zirkpumpactive"]=="on"?"WŁ":"WYŁ")."</font></td><tr>");
+print("<td  valign=top bgcolor=$col1>Cyrkulacja<br><font size=+1><center>".($d["zirkpumpactive"]=="on"?"WŁ":"WYŁ")."</font></td></tr>");
 
 print("<tr><td valign=top>Temp. zewnętrzna<br><font size=+1>".$d["outdoor currenttemperature"].$dg."</font></td>");
 print("<td valign=top bgcolor=$col1>Kod serwisowy<br><font size=+1><center>".$d["servicecode"]." ".$d["errorcode"]."</font></td>");
-print("<td></td></tr>");
+print("<td valign=top bgcolor=$col1>Ciśnienie<br><font size=+1><center>".$d["pressure"]." bar</font></td></tr>");
 
 print("</table></center>");
 
