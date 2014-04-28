@@ -1,6 +1,21 @@
-<h1>
+﻿<h1>
 Statystyka
 <hr></h1>
+<script type="text/javascript">
+function progress(perc){
+
+  if (perc<100)
+	document.getElementById("prc").innerHTML="Przygotowuję wykresy... Proszę czekać...("+perc+"%)";
+  else 
+	document.getElementById("prc").innerHTML="<b>Gotowe!</b>";
+  
+  for (i=0; i<=perc/20; i++){
+    if (i<6) document.getElementById("p"+i).style.backgroundColor="#8888ff";
+  }
+}
+progress(0);
+</script>
+
 <form method="post">
 
 <?php
@@ -69,8 +84,8 @@ print("<table cellspacing=14>");
 if ($in["Version EMS-Collector"] < $min_collector_version){
   print("<tr><td colspan=2 bgcolor=#ff0000 style='padding: 2em 2em 2em 2em; font-size: 14pt;'><b>ACHTUNG:</b> ".
     "Wymagany ems-collector jest zbyt stary! Wymagana jest wersja $min_collector_version lub nowsza! ".
-    "Niemo�liwe jest u�ywanie wszystkich dost�pnych funkcji. ".
-    "Koniecznie pobierz bnajnowsz� wersj� z <a href='https://github.com/moosy/ems-collector'>https://github.com/moosy/ems-collector</a>!</td></tr>");
+    "Niemożliwe jest używanie wszystkich dostępnych funkcji. ".
+    "Koniecznie pobierz bnajnowszą wersję z <a href='https://github.com/moosy/ems-collector'>https://github.com/moosy/ems-collector</a>!</td></tr>");
 }
 print("<tr><td colspan=2>");
 
@@ -91,18 +106,40 @@ print("</td></tr></table>");
 
 </table>
 
+
+<?php
+print("<table id=prog width=350px bgcolor=#cccccc cellspacing=0 cellpadding=5>");
+# print("<tr><td colspan=6>Przygotowuję wykresy...   (" . $emsscriptpath . '/calcemsgraphs.sh' . ")</td></tr>" );
+print("<tr height=30px><td colspan=6 bgcolor=#cccccc><div id=prc align=center></div></td></tr>");
+print("<tr height=3px>");
+print("<td id=p0 bgcolor=#eeeeee></td>");
+print("<td id=p1 bgcolor=#dddddd></td>");
+print("<td id=p2 bgcolor=#cccccc></td>");
+print("<td id=p3 bgcolor=#bbbbbb></td>");
+print("<td id=p4 bgcolor=#aaaaaa></td>");
+print("<td id=p5 bgcolor=#999999></td>");
+print("</tr></table>");
+print('<script type="text/javascript">progress(10);</script>');
+flush_buffers();
+# exec('sudo ' . $emsscriptpath . '/calcemsgraphs.sh &');
+exec( $emsscriptpath . '/calcemsgraphs_h.sh &');
+print('<script type="text/javascript">progress(20);</script>');
+flush_buffers();
+exec( $emsscriptpath . '/calcemsgraphs_d.sh &');
+print('<script type="text/javascript">progress(40);</script>');
+flush_buffers();
+exec( $emsscriptpath . '/calcemsgraphs_3.sh &');
+print('<script type="text/javascript">progress(60);</script>');
+flush_buffers();
+exec( $emsscriptpath . '/calcemsgraphs_w.sh &');
+print('<script type="text/javascript">progress(80);</script>');
+flush_buffers();
+exec( $emsscriptpath . '/calcemsgraphs_m.sh &');
+print('<script type="text/javascript">progress(100);</script>');
+flush_buffers();
+?>
+<p>
 <p><input type=submit value="Aktualizuj">
 
 </form>
-
-<!-- 
-?php
-print("Calculating graphs...   " . $emsscriptpath . '/calcemsgraphs.sh &' );
-print("<BR>Please wait...")
-exec('sudo ' . $emsscriptpath . '/calcemsgraphs.sh &');
-?
--->
-<p>
-Gotowe!
-<p>
 
